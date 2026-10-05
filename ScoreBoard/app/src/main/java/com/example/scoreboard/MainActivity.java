@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     int scoreB = 0;
     TextView tvScoreB;
-
+    boolean gameOver = false;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,10 +43,14 @@ public class MainActivity extends AppCompatActivity {
         Button btnA3 = findViewById(R.id.btnA3);
         Button btnA2 = findViewById(R.id.btnA2);
         Button btnA1 = findViewById(R.id.btnA1);
+        Button btnAn1 = findViewById(R.id.btnAn1);
 
         btnA3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (gameOver) {
+                    return;
+                }
                 scoreA = scoreA + 3;
                 tvScoreA.setText(String.valueOf(scoreA));
             }
@@ -55,6 +59,9 @@ public class MainActivity extends AppCompatActivity {
         btnA2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (gameOver) {
+                    return;
+                }
                 scoreA = scoreA + 2;
                 tvScoreA.setText(String.valueOf(scoreA));
             }
@@ -63,7 +70,24 @@ public class MainActivity extends AppCompatActivity {
         btnA1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (gameOver) {
+                    return;
+                }
                 scoreA = scoreA + 1;
+                tvScoreA.setText(String.valueOf(scoreA));
+            }
+        });
+        btnAn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (gameOver) {
+                    return;
+                }
+                scoreA = scoreA - 1;
+                if (scoreA < 0) {
+                    scoreA = 0;
+                    Toast.makeText(MainActivity.this, "אי אפשר לרדת מתחת לאפס", Toast.LENGTH_SHORT).show();
+                }
                 tvScoreA.setText(String.valueOf(scoreA));
             }
         });
@@ -73,10 +97,14 @@ public class MainActivity extends AppCompatActivity {
         Button btnB3 = findViewById(R.id.btnB3);
         Button btnB2 = findViewById(R.id.btnB2);
         Button btnB1 = findViewById(R.id.btnB1);
+        Button btnBn1 = findViewById(R.id.btnBn1);
 
         btnB3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (gameOver) {
+                    return;
+                }
                 scoreB = scoreB + 3;
                 tvScoreB.setText(String.valueOf(scoreB));
             }
@@ -85,6 +113,9 @@ public class MainActivity extends AppCompatActivity {
         btnB2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (gameOver) {
+                    return;
+                }
                 scoreB = scoreB + 2;
                 tvScoreB.setText(String.valueOf(scoreB));
             }
@@ -93,7 +124,24 @@ public class MainActivity extends AppCompatActivity {
         btnB1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (gameOver) {
+                    return;
+                }
                 scoreB = scoreB + 1;
+                tvScoreB.setText(String.valueOf(scoreB));
+            }
+        });
+        btnBn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (gameOver) {
+                    return;
+                }
+                scoreB = scoreB - 1;
+                if (scoreB < 0) {
+                    scoreB = 0;
+                    Toast.makeText(MainActivity.this, "אי אפשר לרדת מתחת לאפס", Toast.LENGTH_SHORT).show();
+                }
                 tvScoreB.setText(String.valueOf(scoreB));
             }
         });
@@ -105,6 +153,21 @@ public class MainActivity extends AppCompatActivity {
                 scoreB = 0;
                 tvScoreA.setText("0");
                 tvScoreB.setText("0");
+                gameOver = false;
+            }
+        });
+        Button btnEnd = findViewById(R.id.btnEnd);
+        btnEnd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gameOver = true;
+                if (scoreA > scoreB) {
+                    Toast.makeText(MainActivity.this, "היואבים ניצחו!", Toast.LENGTH_SHORT).show();
+                } else if (scoreB > scoreA) {
+                    Toast.makeText(MainActivity.this, "הג'ונים ניצחו!", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(MainActivity.this, "תיקו!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

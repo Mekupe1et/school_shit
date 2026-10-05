@@ -2,4 +2,13 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="screen_bg">#FFF8EE</color>
+    <color name="btn_reset">#C62828</color>
+    <color name="team_a_bg">#FFE0B2</color>
+    <color name="team_b_bg">#B2DFDB</color>
+    <color name="team_a_button">#FFD54F</color>
+    <color name="team_b_button">#80CBC4</color>
+    <color name="team_a_button_reducer">#FFB74D</color>
+    <color name="team_b_button_reducer">#4DB6AC</color>
+    <color name="end_game_button">#4CAF50</color>
 </resources>

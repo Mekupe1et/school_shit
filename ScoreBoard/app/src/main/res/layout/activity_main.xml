@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="גמר הליגה"
+        android:textStyle="bold"
         android:textSize="28sp" />
 
     <Button
@@ -33,15 +34,16 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#FFE0B2"
+            android:background="@color/team_a_bg"
             android:gravity="center_horizontal"
             android:orientation="vertical"
-            android:padding="8dp">
+            android:padding="8dp"
+            android:layout_marginEnd="8dp">
             <TextView
                 android:id="@+id/tvNameA"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="הנשרים"
+                android:text="היואבים"
                 android:textSize="20sp" />
 
             <TextView
@@ -57,26 +59,36 @@
                 android:id="@+id/btnA3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@color/team_a_button"
                 android:text="+3" />
 
             <Button
                 android:id="@+id/btnA2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@color/team_a_button"
                 android:text="+2" />
 
             <Button
                 android:id="@+id/btnA1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@color/team_a_button"
                 android:text="+1" />
+
+            <Button
+                android:id="@+id/btnAn1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/team_a_button_reducer"
+                android:text="-1" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#B2DFDB"
+            android:background="@color/team_b_bg"
             android:gravity="center_horizontal"
             android:orientation="vertical"
             android:padding="8dp">
@@ -85,7 +97,7 @@
                 android:id="@+id/tvNameB"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="הנשרים"
+                android:text="הג'ונים"
                 android:textSize="20sp" />
 
             <TextView
@@ -101,33 +113,67 @@
                 android:id="@+id/btnB3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@color/team_b_button"
                 android:text="+3" />
 
             <Button
                 android:id="@+id/btnB2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@color/team_b_button"
                 android:text="+2" />
 
             <Button
                 android:id="@+id/btnB1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@color/team_b_button"
                 android:text="+1" />
+
+            <Button
+                android:id="@+id/btnBn1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/team_b_button_reducer"
+                android:text="-1" />
         </LinearLayout>
 
     </LinearLayout>
-    <Button
-        android:id="@+id/btnReset"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="16dp"
+        android:gravity="center"
         android:backgroundTint="@color/btn_reset"
         android:paddingStart="32dp"
         android:paddingEnd="32dp"
+        android:orientation="horizontal">
+    <Button
+        android:id="@+id/btnReset"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginEnd="8dp"
+        android:backgroundTint="@color/btn_reset"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
         android:text="איפוס"
         android:textColor="#FFFFFF"
         android:textSize="18sp" />
+        <Button
+            android:id="@+id/btnEnd"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:backgroundTint="@color/btn_reset"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:text="סיום משחק"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
+    </LinearLayout>
+
 
 </LinearLayout>
