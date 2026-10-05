@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="גמר הליגה"
+        android:text="@string/title"
         android:textStyle="bold"
         android:textSize="28sp" />
 
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="8dp"
-        android:text="שריקת פתיחה" />
+        android:text="@string/btn_whistle" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -43,7 +43,7 @@
                 android:id="@+id/tvNameA"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="היואבים"
+                android:text="@string/team_a_name"
                 android:textSize="20sp" />
 
             <TextView
@@ -52,36 +52,32 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="16dp"
-                android:text="0"
+                android:text="@string/zero"
                 android:textSize="64sp" />
 
             <Button
                 android:id="@+id/btnA3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ScoreButton"
                 android:backgroundTint="@color/team_a_button"
-                android:text="+3" />
+                android:text="@string/plus_3" />
 
             <Button
                 android:id="@+id/btnA2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ScoreButton"
                 android:backgroundTint="@color/team_a_button"
-                android:text="+2" />
+                android:text="@string/plus_2" />
 
             <Button
                 android:id="@+id/btnA1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ScoreButton"
                 android:backgroundTint="@color/team_a_button"
-                android:text="+1" />
+                android:text="@string/plus_1" />
 
             <Button
                 android:id="@+id/btnAn1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ScoreButton"
                 android:backgroundTint="@color/team_a_button_reducer"
-                android:text="-1" />
+                android:text="@string/minus_1" />
         </LinearLayout>
 
         <LinearLayout
@@ -97,7 +93,7 @@
                 android:id="@+id/tvNameB"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="הג'ונים"
+                android:text="@string/team_b_name"
                 android:textSize="20sp" />
 
             <TextView
@@ -106,36 +102,32 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="16dp"
-                android:text="0"
+                android:text="@string/zero"
                 android:textSize="64sp" />
 
             <Button
                 android:id="@+id/btnB3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ScoreButton"
                 android:backgroundTint="@color/team_b_button"
-                android:text="+3" />
+                android:text="@string/plus_3" />
 
             <Button
                 android:id="@+id/btnB2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ScoreButton"
                 android:backgroundTint="@color/team_b_button"
-                android:text="+2" />
+                android:text="@string/plus_2" />
 
             <Button
                 android:id="@+id/btnB1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ScoreButton"
                 android:backgroundTint="@color/team_b_button"
-                android:text="+1" />
+                android:text="@string/plus_1" />
 
             <Button
                 android:id="@+id/btnBn1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/ScoreButton"
                 android:backgroundTint="@color/team_b_button_reducer"
-                android:text="-1" />
+                android:text="@string/minus_1" />
         </LinearLayout>
 
     </LinearLayout>
@@ -158,7 +150,7 @@
         android:backgroundTint="@color/btn_reset"
         android:paddingStart="24dp"
         android:paddingEnd="24dp"
-        android:text="איפוס"
+        android:text="@string/reset"
         android:textColor="#FFFFFF"
         android:textSize="18sp" />
         <Button
@@ -170,7 +162,7 @@
             android:backgroundTint="@color/btn_reset"
             android:paddingStart="24dp"
             android:paddingEnd="24dp"
-            android:text="סיום משחק"
+            android:text="@string/end_game"
             android:textColor="#FFFFFF"
             android:textSize="18sp" />
     </LinearLayout>

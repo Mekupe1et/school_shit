@@ -1,3 +1,26 @@
 <resources>
     <string name="app_name">ScoreBoard</string>
+
+    <string name="title">גמר הליגה</string>
+    <string name="btn_whistle">שריקת פתיחה</string>
+
+    <string name="team_a_name">היואבים</string>
+    <string name="team_b_name">הג&#x05F3;ונים</string>
+
+    <string name="plus_3">+3</string>
+    <string name="plus_2">+2</string>
+    <string name="plus_1">+1</string>
+    <string name="minus_1">-1</string>
+
+    <string name="reset">איפוס</string>
+    <string name="end_game">סיום משחק</string>
+
+    <string name="zero">0</string>
+
+    <string name="toast_game_started">המשחק התחיל!</string>
+    <string name="toast_cannot_below_zero">אי אפשר לרדת מתחת לאפס</string>
+
+    <string name="team_a_won">היואבים ניצחו!</string>
+    <string name="team_b_won">הג&#x05F3;ונים ניצחו!</string>
+    <string name="draw">תיקו!</string>
 </resources>
