@@ -1,19 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="@color/screen_bg"
+    android:orientation="vertical"
+    android:padding="16dp">
 
     <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="גמר הליגה"
+        android:textSize="28sp" />
+
+    <Button
+        android:id="@+id/btnWhistle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        android:text="שריקת פתיחה" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#FFE0B2"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="8dp">
+            <TextView
+                android:id="@+id/tvNameA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="הנשרים"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tvScoreA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                android:text="0"
+                android:textSize="64sp" />
+
+            <Button
+                android:id="@+id/btnA3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="+3" />
+
+            <Button
+                android:id="@+id/btnA2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="+2" />
+
+            <Button
+                android:id="@+id/btnA1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="+1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#B2DFDB"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/tvNameB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="הנשרים"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tvScoreB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                android:text="0"
+                android:textSize="64sp" />
+
+            <Button
+                android:id="@+id/btnB3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="+3" />
+
+            <Button
+                android:id="@+id/btnB2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="+2" />
+
+            <Button
+                android:id="@+id/btnB1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="+1" />
+        </LinearLayout>
+
+    </LinearLayout>
+    <Button
+        android:id="@+id/btnReset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/btn_reset"
+        android:paddingStart="32dp"
+        android:paddingEnd="32dp"
+        android:text="איפוס"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
+
+</LinearLayout>
