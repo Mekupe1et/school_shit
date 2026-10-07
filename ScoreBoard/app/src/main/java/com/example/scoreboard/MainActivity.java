@@ -42,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
         tvScoreA = findViewById(R.id.tvScoreA);
         tvScoreB = findViewById(R.id.tvScoreB);
 
-        // Restore state if available
         if (savedInstanceState != null) {
             scoreA = savedInstanceState.getInt(KEY_SCORE_A, 0);
             scoreB = savedInstanceState.getInt(KEY_SCORE_B, 0);
@@ -51,13 +50,11 @@ public class MainActivity extends AppCompatActivity {
             tvScoreB.setText(String.valueOf(scoreB));
         }
 
-        // Team A buttons
         findViewById(R.id.btnA3).setOnClickListener(v -> changeScore(0, 3));
         findViewById(R.id.btnA2).setOnClickListener(v -> changeScore(0, 2));
         findViewById(R.id.btnA1).setOnClickListener(v -> changeScore(0, 1));
         findViewById(R.id.btnAn1).setOnClickListener(v -> changeScore(0, -1));
 
-        // Team B buttons
         findViewById(R.id.btnB3).setOnClickListener(v -> changeScore(1, 3));
         findViewById(R.id.btnB2).setOnClickListener(v -> changeScore(1, 2));
         findViewById(R.id.btnB1).setOnClickListener(v -> changeScore(1, 1));
