@@ -34,6 +34,17 @@ public class ResultActivity extends AppCompatActivity {
             tvResult.setText("טעית...");
             tvResult.setTextColor(getColor(R.color.result_incorrect));
         }
+        Button btnNext = findViewById(R.id.btnNext);
+        btnNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                android.content.Intent data = new android.content.Intent();
+                data.putExtra("next", true);
+                setResult(RESULT_OK, data);
+                finish();
+            }
+        });
+
         Button btnBack = findViewById(R.id.btnBack);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
