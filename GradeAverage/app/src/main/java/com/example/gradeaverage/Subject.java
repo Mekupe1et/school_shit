@@ -59,28 +59,22 @@ public class Subject {
         return tvSubject;
     }
     public EditText createGradeEditText() {
-        EditText etGrade = new EditText(activity);
-        etGrade.setHint("grade");
-        etGrade.setLayoutParams(new LinearLayout.LayoutParams(
-                0,
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-                1
-        ));
-        etGrade.setInputType(android.text.InputType.TYPE_CLASS_NUMBER | android.text.InputType.TYPE_NUMBER_FLAG_DECIMAL);
-        etGrade.setFilters(new InputFilter[] {new InputFilter.LengthFilter(maxLengthGrade)});
-        etGrade.setGravity(android.view.Gravity.CENTER);
-        return etGrade;
+        return createEditText("grade", maxLengthGrade);
     }
     public EditText createUnitsEditText() {
+        return createEditText("units", maxLengthUnits);
+    }
+
+    public EditText createEditText(String type, int maxLen) {
         EditText etUnits = new EditText(activity);
-        etUnits.setHint("units");
+        etUnits.setHint(type);
         etUnits.setLayoutParams(new LinearLayout.LayoutParams(
                 0,
                 LinearLayout.LayoutParams.WRAP_CONTENT,
                 1
         ));
         etUnits.setInputType(android.text.InputType.TYPE_CLASS_NUMBER | android.text.InputType.TYPE_NUMBER_FLAG_DECIMAL);
-        etUnits.setFilters(new InputFilter[] {new InputFilter.LengthFilter(maxLengthUnits)});
+        etUnits.setFilters(new InputFilter[] {new InputFilter.LengthFilter(maxLen)});
         etUnits.setGravity(android.view.Gravity.CENTER);
         return etUnits;
     }
@@ -109,5 +103,10 @@ public class Subject {
     }
     public int getUnitInt(){
         return getIntFromEditText(etUnits);
+    }
+
+    public void resetVals(){
+        etGrade.setText("");
+        etUnits.setText("");
     }
 }

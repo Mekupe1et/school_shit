@@ -26,6 +26,12 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Calculate Average" />
+    <Button
+        android:id="@+id/btnClear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="clear" />
     <TextView
         android:id="@+id/tvResult"
         android:layout_width="match_parent"

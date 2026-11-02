@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.text.InputFilter;
 import android.util.Pair;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -42,6 +43,16 @@ public class MainActivity extends AppCompatActivity {
                     Toast.LENGTH_SHORT
             ).show();
             tvResult.setText("Weight average: " + String.format("%.1f", sumGrades/sumUnits));
+        });
+
+        findViewById(R.id.btnClear).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                for (int i = 0; i < subjects.size(); i++) {
+                    subjects.get(i).resetVals();
+                }
+                tvResult.setText("the average will show up here");
+            }
         });
     }
 
