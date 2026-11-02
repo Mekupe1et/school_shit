@@ -1,23 +1,25 @@
 package com.example.gradeaverage;
 
 import android.app.Activity;
-import android.content.Context;
+import android.text.Editable;
 import android.text.InputFilter;
+import android.text.TextWatcher;
 import android.util.Pair;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class Subject {
-    private final static int maxLengthUnits = 1;
-    private final static int maxLengthGrade = 3;
-    private final Pair<Integer, Integer> validGradeRange = new Pair<>(0,100);
-    private final Pair<Integer, Integer> validUnitsRange = new Pair<>(1,5);
-    private String name;
-    private EditText etUnits;
-    private EditText etGrade;
-    private TextView tvSubject;
-    private Activity activity;
+    protected final static int maxLengthUnits = 1;
+    protected final static int maxLengthGrade = 3;
+    protected final Pair<Integer, Integer> validGradeRange = new Pair<>(0,100);
+    protected final Pair<Integer, Integer> validUnitsRange = new Pair<>(1,5);
+    protected String name;
+    protected EditText etUnits;
+    protected EditText etGrade;
+    protected TextView tvSubject;
+    protected Activity activity;
+    protected static TextView tvResult;
     public Subject(String subject, Activity activity){
         this.name = subject;
         this.activity = activity;
@@ -26,11 +28,17 @@ public class Subject {
         addToView();
 
     }
-
+    public static void addTvResult(TextView _tvResult){
+        tvResult = _tvResult;
+    }
     public void createElements(){
         tvSubject = createSubjectTextView(name);
         etGrade = createGradeEditText();
         etUnits = createUnitsEditText();
+    }
+
+    public String getSubjectName(){
+        return name;
     }
 
     public void addToView(){
@@ -66,17 +74,28 @@ public class Subject {
     }
 
     public EditText createEditText(String type, int maxLen) {
-        EditText etUnits = new EditText(activity);
-        etUnits.setHint(type);
-        etUnits.setLayoutParams(new LinearLayout.LayoutParams(
+        EditText et = new EditText(activity);
+        et.setHint(type);
+        et.setLayoutParams(new LinearLayout.LayoutParams(
                 0,
                 LinearLayout.LayoutParams.WRAP_CONTENT,
                 1
         ));
-        etUnits.setInputType(android.text.InputType.TYPE_CLASS_NUMBER | android.text.InputType.TYPE_NUMBER_FLAG_DECIMAL);
-        etUnits.setFilters(new InputFilter[] {new InputFilter.LengthFilter(maxLen)});
-        etUnits.setGravity(android.view.Gravity.CENTER);
-        return etUnits;
+        et.setInputType(android.text.InputType.TYPE_CLASS_NUMBER | android.text.InputType.TYPE_NUMBER_FLAG_DECIMAL);
+        et.setFilters(new InputFilter[] {new InputFilter.LengthFilter(maxLen)});
+        et.setGravity(android.view.Gravity.CENTER);
+        et.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+            @Override
+            public void afterTextChanged(Editable s) {}
+        });
+        return et;
     }
 
     public boolean hasError(){
@@ -108,5 +127,8 @@ public class Subject {
     public void resetVals(){
         etGrade.setText("");
         etUnits.setText("");
+    }
+    public int getWeightedGrade(){
+        return getGradeInt()*getUnitInt()+((getUnitInt()-3)*2);
     }
 }

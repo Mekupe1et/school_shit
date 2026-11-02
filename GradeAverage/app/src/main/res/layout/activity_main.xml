@@ -6,6 +6,14 @@
     android:orientation="vertical"
     android:padding="16dp">
 
+    <EditText
+        android:id="@+id/etName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="student name"
+        android:inputType="textPersonName"
+        android:layout_gravity="center"
+        android:gravity="center" />
 
     <TextView
         android:id="@+id/tvTitle"
@@ -20,6 +28,12 @@
         android:orientation="vertical"
         android:id="@+id/subjectsLayout">
     </LinearLayout>
+    <Button
+        android:id="@+id/btnAddSubject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Add subject" />
     <Button
         android:id="@+id/btnCalc"
         android:layout_width="wrap_content"

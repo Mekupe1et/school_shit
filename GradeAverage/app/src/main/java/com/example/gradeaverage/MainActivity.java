@@ -1,20 +1,13 @@
 package com.example.gradeaverage;
 
-import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
-import android.text.InputFilter;
-import android.util.Pair;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import java.util.ArrayList;
 
@@ -30,19 +23,24 @@ public class MainActivity extends AppCompatActivity {
         String[] subjectNames = {"Math", "English", "CS"};
         generateSubjects(subjectNames);
         TextView tvResult = findViewById(R.id.tvResult);
+        EditText etName = findViewById(R.id.etName);
         findViewById(R.id.btnCalc).setOnClickListener(v -> {
             double sumGrades = 0;
             double sumUnits = 0;
             for (int i = 0; i < subjects.size(); i++) {
                 if (subjects.get(i).hasError()) return;
-                sumGrades += subjects.get(i).getGradeInt()*subjects.get(i).getUnitInt();
+                sumGrades += subjects.get(i).getWeightedGrade();
                 sumUnits += subjects.get(i).getUnitInt();
             }
             Toast.makeText(this,
                     "Calculating average...",
                     Toast.LENGTH_SHORT
             ).show();
-            tvResult.setText("Weight average: " + String.format("%.1f", sumGrades/sumUnits));
+            tvResult.setText("Weighted average: " + String.format("%.1f", sumGrades / sumUnits));
+            Intent i = new Intent(MainActivity.this, CertificateActivity.class);
+            i.putExtra("avg", sumGrades / sumUnits);
+            i.putExtra("name", etName.getText().toString());
+            startActivity(i);
         });
 
         findViewById(R.id.btnClear).setOnClickListener(new View.OnClickListener() {
@@ -54,14 +52,24 @@ public class MainActivity extends AppCompatActivity {
                 tvResult.setText("the average will show up here");
             }
         });
+        findViewById(R.id.btnAddSubject).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addEditableSubject();
+            }
+        });
     }
 
     public void generateSubjects(String[] subjects) {
         for (String subject : subjects) {
             addSubject(subject);
         }
+        addEditableSubject();
     }
     public void addSubject(String subject){
         subjects.add(new Subject(subject, this));
+    }
+    public void addEditableSubject(){
+        subjects.add(new EditableSubject(this));
     }
 }

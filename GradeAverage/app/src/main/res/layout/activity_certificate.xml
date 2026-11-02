@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/tvCertificate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Certificate:"
+
+        android:textSize="30sp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/tvCertificateRes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="the res will show up here"
+        android:gravity="center"/>
+
+</LinearLayout>
