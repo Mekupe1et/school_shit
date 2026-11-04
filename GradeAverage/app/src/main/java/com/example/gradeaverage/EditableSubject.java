@@ -9,7 +9,6 @@ public class EditableSubject extends Subject{
 
     public EditableSubject(Activity activity) {
         super("", activity);
-        tvSubject = new EditText(activity);
     }
     @Override
     public TextView createSubjectTextView(String subject) {

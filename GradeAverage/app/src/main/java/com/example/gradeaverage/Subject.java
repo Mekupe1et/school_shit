@@ -9,6 +9,8 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.function.Function;
+
 public class Subject {
     protected final static int maxLengthUnits = 1;
     protected final static int maxLengthGrade = 3;
@@ -19,7 +21,7 @@ public class Subject {
     protected EditText etGrade;
     protected TextView tvSubject;
     protected Activity activity;
-    protected static TextView tvResult;
+    private static Runnable calcAvg;
     public Subject(String subject, Activity activity){
         this.name = subject;
         this.activity = activity;
@@ -28,9 +30,10 @@ public class Subject {
         addToView();
 
     }
-    public static void addTvResult(TextView _tvResult){
-        tvResult = _tvResult;
+    public static void addCalcAvg(Runnable calcAvg) {
+        Subject.calcAvg = calcAvg;
     }
+
     public void createElements(){
         tvSubject = createSubjectTextView(name);
         etGrade = createGradeEditText();
@@ -90,7 +93,7 @@ public class Subject {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
+                if (calcAvg != null) calcAvg.run();
             }
             @Override
             public void afterTextChanged(Editable s) {}

@@ -24,21 +24,16 @@ public class MainActivity extends AppCompatActivity {
         generateSubjects(subjectNames);
         TextView tvResult = findViewById(R.id.tvResult);
         EditText etName = findViewById(R.id.etName);
+        Subject.addCalcAvg(()->updateAvg(tvResult));
         findViewById(R.id.btnCalc).setOnClickListener(v -> {
-            double sumGrades = 0;
-            double sumUnits = 0;
-            for (int i = 0; i < subjects.size(); i++) {
-                if (subjects.get(i).hasError()) return;
-                sumGrades += subjects.get(i).getWeightedGrade();
-                sumUnits += subjects.get(i).getUnitInt();
-            }
+            double avg = updateAvg(tvResult);
+            if(avg ==-1)return;
             Toast.makeText(this,
                     "Calculating average...",
                     Toast.LENGTH_SHORT
             ).show();
-            tvResult.setText("Weighted average: " + String.format("%.1f", sumGrades / sumUnits));
             Intent i = new Intent(MainActivity.this, CertificateActivity.class);
-            i.putExtra("avg", sumGrades / sumUnits);
+            i.putExtra("avg", avg);
             i.putExtra("name", etName.getText().toString());
             startActivity(i);
         });
@@ -71,5 +66,16 @@ public class MainActivity extends AppCompatActivity {
     }
     public void addEditableSubject(){
         subjects.add(new EditableSubject(this));
+    }
+    public double updateAvg(TextView tvResult){
+        double sumGrades = 0;
+        double sumUnits = 0;
+        for (int i = 0; i < subjects.size(); i++) {
+            if (subjects.get(i).hasError()) return -1;
+            sumGrades += subjects.get(i).getWeightedGrade();
+            sumUnits += subjects.get(i).getUnitInt();
+        }
+        tvResult.setText("Weighted average: " + String.format("%.1f", sumGrades / sumUnits));
+        return sumGrades / sumUnits;
     }
 }
