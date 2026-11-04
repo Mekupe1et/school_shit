@@ -92,11 +92,11 @@ public class Subject {
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+            @Override
+            public void afterTextChanged(Editable s) {
                 if (calcAvg != null) calcAvg.run();
             }
-            @Override
-            public void afterTextChanged(Editable s) {}
         });
         return et;
     }
@@ -118,13 +118,17 @@ public class Subject {
         return false;
     }
     public int getIntFromEditText(EditText et){
-        return Integer.parseInt(et.getText().toString());
+        try {
+            return Integer.parseInt(et.getText().toString());
+        } catch (NumberFormatException e) {
+            return -1;
+        }
     }
     public int getGradeInt(){
         return getIntFromEditText(etGrade);
     }
     public int getUnitInt(){
-        return getIntFromEditText(etUnits);
+        return getGradeInt()==-1||getIntFromEditText(etUnits)==-1?0:getIntFromEditText(etUnits);
     }
 
     public void resetVals(){
@@ -132,6 +136,9 @@ public class Subject {
         etUnits.setText("");
     }
     public int getWeightedGrade(){
-        return getGradeInt()*getUnitInt()+((getUnitInt()-3)*2);
+        int grade = getGradeInt();
+        int units = getUnitInt();
+        if (grade == -1 || units == -1) return 0;
+        return getGradeInt()*getUnitInt()+((getUnitInt()-3)*10)*getUnitInt();
     }
 }

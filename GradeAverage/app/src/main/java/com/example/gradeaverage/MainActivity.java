@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         generateSubjects(subjectNames);
         TextView tvResult = findViewById(R.id.tvResult);
         EditText etName = findViewById(R.id.etName);
-        Subject.addCalcAvg(()->updateAvg(tvResult));
+        Subject.addCalcAvg(()->updateAvgNoChecks(tvResult));
         findViewById(R.id.btnCalc).setOnClickListener(v -> {
             double avg = updateAvg(tvResult);
             if(avg ==-1)return;
@@ -68,10 +68,15 @@ public class MainActivity extends AppCompatActivity {
         subjects.add(new EditableSubject(this));
     }
     public double updateAvg(TextView tvResult){
+        for (int i = 0; i < subjects.size(); i++) {
+            if (subjects.get(i).hasError()) return -1;
+        }
+        return updateAvgNoChecks(tvResult);
+    }
+    public double updateAvgNoChecks(TextView tvResult){
         double sumGrades = 0;
         double sumUnits = 0;
         for (int i = 0; i < subjects.size(); i++) {
-            if (subjects.get(i).hasError()) return -1;
             sumGrades += subjects.get(i).getWeightedGrade();
             sumUnits += subjects.get(i).getUnitInt();
         }
