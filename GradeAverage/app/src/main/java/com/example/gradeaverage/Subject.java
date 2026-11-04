@@ -5,6 +5,7 @@ import android.text.Editable;
 import android.text.InputFilter;
 import android.text.TextWatcher;
 import android.util.Pair;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -78,6 +79,7 @@ public class Subject {
 
     public EditText createEditText(String type, int maxLen) {
         EditText et = new EditText(activity);
+        et.setId(View.generateViewId());
         et.setHint(type);
         et.setLayoutParams(new LinearLayout.LayoutParams(
                 0,
@@ -87,6 +89,7 @@ public class Subject {
         et.setInputType(android.text.InputType.TYPE_CLASS_NUMBER | android.text.InputType.TYPE_NUMBER_FLAG_DECIMAL);
         et.setFilters(new InputFilter[] {new InputFilter.LengthFilter(maxLen)});
         et.setGravity(android.view.Gravity.CENTER);
+        et.setSingleLine(true);
         et.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
