@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Ollama Chat</string>
+    <string name="title">Ollama Chat</string>
+    <string name="subtitle">A private chat with your local model</string>
+    <string name="server_label">SERVER ADDRESS</string>
+    <string name="server_hint">http://10.0.2.2:11434</string>
+    <string name="server_help">Use 10.0.2.2 in the Android emulator; use your PC LAN IP on a phone.</string>
+    <string name="test_connection">Test</string>
+    <string name="model_label">MODEL</string>
+    <string name="model_hint">e.g. llama3.2</string>
+    <string name="status_ready">Ready to chat</string>
+    <string name="status_connecting">Checking Ollama connection…</string>
+    <string name="status_requesting_local_network_permission">Allow local network access to connect to your Ollama server.</string>
+    <string name="status_connected">Connected to Ollama %1$s</string>
+    <string name="status_connection_failed">Connection failed: %1$s</string>
+    <string name="status_generating">Generating with %1$s…</string>
+    <string name="status_request_failed">The message could not be completed</string>
+    <string name="welcome_message">Hi! Enter your Ollama server address and model above, then send a message to get started.</string>
+    <string name="message_hint">Message your model…</string>
+    <string name="send">Send</string>
+    <string name="error_invalid_server">Enter an Ollama server URL, such as http://10.0.2.2:11434</string>
+    <string name="error_local_network_permission">Local network permission is required to connect to your Ollama server. Allow it in app settings, then try again.</string>
+    <string name="error_model_required">Enter a model name, such as llama3.2</string>
+    <string name="error_request_failed">Could not reach Ollama: %1$s</string>
+    <string name="empty_answer">Ollama returned no answer text.</string>
+</resources>
